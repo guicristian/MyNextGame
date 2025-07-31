@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyNextGame</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://kit.fontawesome.com/9c310306df.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <i class="fas fa-gamepad"></i> MyNextGame
+            </a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="form-section">
+    <h2>Adicionar Novo Jogo</h2>
+    <form id="add-game-form">
+        
+        <div class="preview-container">
+            <img src="" alt="Preview da Capa" id="cover-preview">
+        </div>
+
+        <div class="form-group">
+            <label for="game-cover">Capa do Jogo</label>
+            <input type="file" id="game-cover" accept="image/*">
+        </div>
+        
+        <div class="form-group">
+             <label for="game-name">Nome do Jogo</label>
+             <input type="text" id="game-name" required autocomplete="off">
+              <div id="suggestions-box"></div>
+        </div>
+        <div class="form-group">
+            <label for="game-platform">Plataforma</label>
+            <input type="text" id="game-platform" placeholder="Ex: PS5, PC, Switch..." required>
+        </div>
+
+        <div class="form-group">
+            <label for="game-status">Status</label>
+            <select id="game-status" required>
+                <option value="Quero jogar">Quero jogar</option>
+                <option value="Jogando">Jogando</option>
+                <option value="Zerado">Zerado</option>
+                <option value="Platinado">Platinado</option>
+                <option value="Abandonado">Abandonado</option>
+            </select>
+        </div>
+        
+        <button type="submit">Adicionar Jogo</button>
+    </form>
+</section>
+
+        <section id="games-list-section">
+            <h2>Minha Lista de Jogos</h2>
+            <div id="games-list">
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 MyNextGame. Desenvolvido com ❤️.</p>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+/* Importando a fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Variáveis de Cor para fácil customização */
+:root {
+    --bg-color: #121212;
+    --surface-color: #1E1E1E;
+    --primary-text-color: #E0E0E0;
+    --secondary-text-color: #B3B3B3;
+    --accent-color: #1DB954; /* Verde Limão */
+    --border-color: #2c2c2c;
+}
+
+/* Reset Básico e Estilo do Body */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    line-height: 1.6;
+}
+
+/* --- Estilo do Header e Navbar --- */
+header {
+    background-color: var(--surface-color);
+    padding: 0 5%;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky; /* Fixa o header no topo ao rolar */
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+nav .logo i {
+    margin-right: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: var(--primary-text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+
+/* --- Estilo do Conteúdo Principal --- */
+main {
+    padding: 2rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 10px;
+}
+
+/* --- Estilo do Formulário --- */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--secondary-text-color);
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #1ed760;
+}
+
+/* --- Estilo da Lista e Cards de Jogos --- */
+#games-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.game-card {
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    border-left: 5px solid var(--accent-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.game-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+.game-card .platform {
+    font-style: italic;
+    color: var(--secondary-text-color);
+    margin-bottom: 1rem;
+}
+
+.game-card .status {
+    background-color: var(--bg-color);
+    padding: 0.3rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    align-self: flex-start;
+    margin-bottom: 1rem;
+    flex-grow: 1; /* Empurra o botão para baixo */
+}
+
+.card-actions button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card-actions button:hover {
+    background-color: #e60000;
+}
+
+
+/* --- Estilo do Rodapé --- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--secondary-text-color);
+    font-size: 0.9rem;
+}
+
+/* --- Estilo do Preview e Input de Arquivo --- */
+
+.preview-container {
+    text-align: center;
+    margin-bottom: 1rem;
+    min-height: 150px; /* Garante um espaço mesmo sem imagem */
+}
+
+#cover-preview {
+    max-width: 150px;
+    border-radius: 8px;
+    border: 2px dashed var(--border-color);
+    object-fit: cover;
+    display: none; /* A imagem começa escondida */
+}
+
+#cover-preview.visible {
+    display: inline-block; /* Faz a imagem aparecer quando selecionada */
+}
+
+input[type="file"] {
+    background-color: var(--surface-color);
+    padding: 0.5rem;
+}
+
+/* --- Estilo para a imagem da capa DENTRO do card --- */
+.game-cover-img {
+    width: 100%;
+    height: 180px; /* Altura fixa para todos os cards */
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+/* --- Estilo da Caixa de Sugestões --- */
+.form-group {
+    position: relative; /* Necessário para posicionar a caixa de sugestões */
+}
+
+#suggestions-box {
+    position: absolute;
+    width: 100%;
+    background-color: #2a2a2a;
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    z-index: 99;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.suggestion-item {
+    padding: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: background-color 0.2s ease;
+}
+
+.suggestion-item:hover {
+    background-color: var(--accent-color);
+}
+
+.suggestion-item img {
+    width: 50px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
