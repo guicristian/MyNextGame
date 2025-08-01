@@ -1,11 +1,15 @@
-// CÓDIGO CORRETO PARA O script.js (FRONTEND)
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    const BASE_API_URL = 'https://mynextgame-api.onrender.com/api/games';
-    const GAMES_API_URL = `${BASE_API_URL}/api/games`;
-    const SEARCH_API_URL = `${BASE_API_URL}/api/search-rawg`;
+
+    const BASE_API_URL = 'https://mynextgame-api.onrender.com'; 
+
+    const GAMES_API_URL = `${BASE_API_URL}/api/games`;      // Resultado correto: https://mynextgame-api.onrender.com/api/games
+    const SEARCH_API_URL = `${BASE_API_URL}/api/search-rawg`; // Resultado correto: https://mynextgame-api.onrender.com/api/search-rawg
+
+
     const gameForm = document.getElementById('add-game-form');
+
     const gamesListContainer = document.getElementById('games-list');
     const coverInput = document.getElementById('game-cover');
     const coverPreview = document.getElementById('cover-preview');
