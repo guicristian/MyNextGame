@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    const API_URL = 'http://localhost:5000/api/games';
+    const API_URL = 'https://mynextgame-api.onrender.com/api/games';
     const gameForm = document.getElementById('add-game-form');
     const gamesListContainer = document.getElementById('games-list');
     const coverInput = document.getElementById('game-cover');
