@@ -2,7 +2,9 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    const API_URL = 'https://mynextgame-api.onrender.com/api/games';
+    const BASE_API_URL = 'https://mynextgame-api.onrender.com/api/games';
+    const GAMES_API_URL = `${BASE_API_URL}/api/games`;
+    const SEARCH_API_URL = `${BASE_API_URL}/api/search-rawg`;
     const gameForm = document.getElementById('add-game-form');
     const gamesListContainer = document.getElementById('games-list');
     const coverInput = document.getElementById('game-cover');
@@ -10,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const loadGames = async () => {
         try {
-            const response = await fetch(API_URL);
+            const response = await fetch(GAMES_API_URL);
             if (!response.ok) throw new Error('Erro ao carregar jogos.');
             return await response.json();
         } catch (error) {
@@ -22,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const saveGame = async (game) => {
         try {
-            await fetch(API_URL, {
+            await fetch(GAMES_API_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(game),
@@ -34,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const deleteGame = async (gameId) => {
         try {
-            await fetch(`${API_URL}/${gameId}`, { method: 'DELETE' });
+            await fetch(`${GAMES_API_URL}/${gameId}`, { method: 'DELETE' });
         } catch (error) {
             console.error('Falha ao deletar o jogo:', error);
         }
@@ -119,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         debounceTimer = setTimeout(async () => {
             try {
-                const response = await fetch(`${BASE_API_URL}/api/search-rawg/${query}`);
+                const response = await fetch(`${SEARCH_API_URL}/${query}`);
                 if (!response.ok) return;
                 const suggestions = await response.json();
                 suggestionsBox.innerHTML = '';
