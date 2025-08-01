@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         debounceTimer = setTimeout(async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/search-rawg/${query}`);
+                const response = await fetch(`${BASE_API_URL}/api/search-rawg/${query}`);
                 if (!response.ok) return;
                 const suggestions = await response.json();
                 suggestionsBox.innerHTML = '';
